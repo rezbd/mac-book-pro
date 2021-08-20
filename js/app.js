@@ -17,6 +17,10 @@ const deliveryCost = document.getElementById('delivery-cost');
 const totalPrice = document.getElementById('total-price');
 const grandTotal = document.getElementById('grand-total');
 
+// Promo
+const applyPromo = document.getElementById('apply-promo');
+const promoInput = document.getElementById('promo-input');
+
 // calculating total price
 function totalCost() {
     const bestPriceAmount = parseFloat(bestPrice.innerText);
@@ -26,8 +30,15 @@ function totalCost() {
     const totalCostAmount = bestPriceAmount + memoryCostAmount + storageCostAmount + deliveryCostAmount;
     totalPrice.innerText = totalCostAmount;
     // grandTotal.innerText = totalCostAmount;
+    // bonus
+    const promoInputText = promoInput.value;
+    const promoCode = 'stevekaku'
+    if (promoInputText == promoCode) {
+        grandTotal.innerText = totalCostAmount - (totalCostAmount * 0.2);
+    } else {
+        grandTotal.innerText = totalCostAmount;
+    }
 }
-
 
 // add event listener to the memory buttons
 memoryLow.addEventListener('click', function () {
@@ -60,5 +71,11 @@ deliveryFree.addEventListener('click', function () {
 })
 deliveryExpress.addEventListener('click', function () {
     deliveryCost.innerText = '20';
+    totalCost();
+})
+
+// add event listener to the promo button
+
+applyPromo.addEventListener('click', function () {
     totalCost();
 })
