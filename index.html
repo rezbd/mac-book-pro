@@ -13,6 +13,7 @@
 
 <body>
     <main>
+        <!-- Section if iMac specifications -->
         <section class="container mb-5 mt-5">
             <div class="row">
                 <div class="col-lg-5">
@@ -24,47 +25,59 @@
                         16-core Neural Engine 8GB unified memory 256GB SSD storage Two Thunderbolt / USB 4 ports Magic
                         Mouse
                         Magic Keyboard - US English</p>
+                    <!-- iMac memory -->
                     <div class="mb-4">
                         <p class="fw-bold">Memory</p>
-                        <button type="button" class="btn btn-light btn-outline-dark">8GB unified memory</button>
-                        <button type="button" class="btn btn-light btn-outline-dark">16GB unified memory</button>
+                        <button type="button" id="memory-low" class="btn btn-light btn-outline-dark">8GB unified
+                            memory</button>
+                        <button type="button" id="memory-high" class="btn btn-light btn-outline-dark">16GB unified
+                            memory</button>
                     </div>
+                    <!-- iMac storage -->
                     <div class="mb-4">
                         <p class="fw-bold">Storage</p>
-                        <button type="button" class="btn btn-light btn-outline-dark">256GB SSD storage</button>
-                        <button type="button" class="btn btn-light btn-outline-dark">512GB SSD storage</button>
-                        <button type="button" class="btn btn-light btn-outline-dark">1TB SSD storage</button>
+                        <button type="button" id="storage-low" class="btn btn-light btn-outline-dark">256GB SSD
+                            storage</button>
+                        <button type="button" id="storage-mid" class="btn btn-light btn-outline-dark">512GB SSD
+                            storage</button>
+                        <button type="button" id="storage-high" class="btn btn-light btn-outline-dark">1TB SSD
+                            storage</button>
                     </div>
+                    <!-- Delivery options -->
                     <div class="mb-5">
                         <p class="fw-bold">Choose your delivery option</p>
-                        <button type="button" class="btn btn-light btn-outline-dark">Friday, Aug 25 FREE Prime
+                        <button type="button" id="delivery-free" class="btn btn-light btn-outline-dark">Friday, Aug 25
+                            FREE Prime
                             Delivery</button>
-                        <button type="button" class="btn btn-light btn-outline-dark">Friday, Aug 21 Delivery Charge
+                        <button type="button" id="delivery-express" class="btn btn-light btn-outline-dark">Friday, Aug
+                            21 Delivery Charge
                             $20</button>
                     </div>
+                    <!-- Price List -->
                     <div class="w-50 mb-4">
                         <div class="d-flex justify-content-between">
                             <p class="fw-bold">Best Price</p>
-                            <p class="fw-bold">$1299</p>
+                            <p class="fw-bold">$<span id="best-price">1299</span></p>
                         </div>
                         <div class="d-flex justify-content-between">
                             <p class="fw-bold">Extra Memory Cost</p>
-                            <p class="fw-bold">$0</p>
+                            <p class="fw-bold">$<span id="memory-cost">0</span></p>
                         </div>
                         <div class="d-flex justify-content-between">
                             <p class="fw-bold">Extra Storage Cost</p>
-                            <p class="fw-bold">$0</p>
+                            <p class="fw-bold">$<span id="storage-cost">0</span></p>
                         </div>
                         <div class="d-flex justify-content-between">
                             <p class="fw-bold">Delivery Charge</p>
-                            <p class="fw-bold">$0</p>
+                            <p class="fw-bold">$<span id="delivery-cost">0</span></p>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between">
                             <p class="fw-bold">Total Price</p>
-                            <p class="fw-bold">$1299</p>
+                            <p class="fw-bold">$<span id="total-price">1299</span></p>
                         </div>
                     </div>
+                    <!-- Apply Promo -->
                     <div>
                         <p class="fw-bold">Add Promo Code</p>
                         <input type="text">
@@ -73,9 +86,10 @@
                 </div>
             </div>
         </section>
+        <!-- Section of Grand Total -->
         <section class="container text-center mb-5">
             <hr class="w-50 m-auto mb-3">
-            <h1>Total: $<span id="">1299</span></h1>
+            <h1>Total: $<span id="grand-total">1299</span></h1>
         </section>
     </main>
 </body>
