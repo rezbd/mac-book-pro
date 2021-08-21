@@ -11,7 +11,7 @@ function totalCost() {
     // Promo
     const promoInput = document.getElementById('promo-input');
     const promoInputText = promoInput.value;
-    const promoCode = 'stevekaku'
+    const promoCode = 'stevekaku';
     if (promoInputText == promoCode) {
         grandTotal.innerText = totalCostAmount * 0.8;
     } else {
@@ -36,18 +36,18 @@ document.getElementById('memory-high').addEventListener('click', function () {
 
 // storage buttons
 document.getElementById('storage-low').addEventListener('click', function () {
-    setPricing('storage-cost', 0)
+    setPricing('storage-cost', 0);
 })
 document.getElementById('storage-mid').addEventListener('click', function () {
-    setPricing('storage-cost', 100)
+    setPricing('storage-cost', 100);
 })
 document.getElementById('storage-high').addEventListener('click', function () {
-    setPricing('storage-cost', 180)
+    setPricing('storage-cost', 180);
 })
 
 // delivery buttons
 document.getElementById('delivery-free').addEventListener('click', function () {
-    setPricing('delivery-cost', 0)
+    setPricing('delivery-cost', 0);
 })
 document.getElementById('delivery-express').addEventListener('click', function () {
     setPricing('delivery-cost', 20);
