@@ -1,4 +1,4 @@
-// calculation of total price and grand total price
+// function to calculate total price and grand total
 function totalCost() {
     const totalPrice = document.getElementById('total-price');
     const grandTotal = document.getElementById('grand-total');
@@ -8,7 +8,6 @@ function totalCost() {
     const deliveryCost = parseFloat(document.getElementById('delivery-cost').innerText);
     const totalCostAmount = bestPrice + memoryCost + storageCost + deliveryCost;
     totalPrice.innerText = totalCostAmount;
-
     // Promo
     const promoInput = document.getElementById('promo-input');
     const promoInputText = promoInput.value;
@@ -21,13 +20,13 @@ function totalCost() {
     promoInput.value = '';
 }
 
-// set pricing for specification buttons
+// function to set pricing for the buttons
 function setPricing(priceId, amount) {
     document.getElementById(priceId).innerText = amount;
     totalCost()
 }
 
-// add event listener to the memory buttons
+// memory buttons
 document.getElementById('memory-low').addEventListener('click', function () {
     setPricing('memory-cost', 0);
 })
@@ -35,7 +34,7 @@ document.getElementById('memory-high').addEventListener('click', function () {
     setPricing('memory-cost', 180);
 })
 
-// add event listener to the storage buttons
+// storage buttons
 document.getElementById('storage-low').addEventListener('click', function () {
     setPricing('storage-cost', 0)
 })
@@ -46,7 +45,7 @@ document.getElementById('storage-high').addEventListener('click', function () {
     setPricing('storage-cost', 180)
 })
 
-// add event listener to the delivery buttons
+// delivery buttons
 document.getElementById('delivery-free').addEventListener('click', function () {
     setPricing('delivery-cost', 0)
 })
@@ -54,7 +53,7 @@ document.getElementById('delivery-express').addEventListener('click', function (
     setPricing('delivery-cost', 20);
 })
 
-// add event listener to the promo button
+// apply promo button
 document.getElementById('apply-promo').addEventListener('click', function () {
     totalCost();
 })
