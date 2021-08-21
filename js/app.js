@@ -1,34 +1,16 @@
-// memory buttons
-const memoryLow = document.getElementById('memory-low');
-const memoryHigh = document.getElementById('memory-high');
-// storage buttons
-const storageLow = document.getElementById('storage-low');
-const storageMid = document.getElementById('storage-mid');
-const storageHigh = document.getElementById('storage-high');
-// delivery buttons
-const deliveryFree = document.getElementById('delivery-free');
-const deliveryExpress = document.getElementById('delivery-express');
-
-// all prices
-const bestPrice = document.getElementById('best-price');
-const memoryCost = document.getElementById('memory-cost');
-const storageCost = document.getElementById('storage-cost');
-const deliveryCost = document.getElementById('delivery-cost');
-const totalPrice = document.getElementById('total-price');
-const grandTotal = document.getElementById('grand-total');
-
-// Promo
-const applyPromo = document.getElementById('apply-promo');
-const promoInput = document.getElementById('promo-input');
-
-// calculating total price
+// calculation of total price and grand total price
 function totalCost() {
-    const bestPriceAmount = parseFloat(bestPrice.innerText);
-    const memoryCostAmount = parseFloat(memoryCost.innerText);
-    const storageCostAmount = parseFloat(storageCost.innerText);
-    const deliveryCostAmount = parseFloat(deliveryCost.innerText);
-    const totalCostAmount = bestPriceAmount + memoryCostAmount + storageCostAmount + deliveryCostAmount;
+    const totalPrice = document.getElementById('total-price');
+    const grandTotal = document.getElementById('grand-total');
+    const bestPrice = parseFloat(document.getElementById('best-price').innerText);
+    const memoryCost = parseFloat(document.getElementById('memory-cost').innerText);
+    const storageCost = parseFloat(document.getElementById('storage-cost').innerText);
+    const deliveryCost = parseFloat(document.getElementById('delivery-cost').innerText);
+    const totalCostAmount = bestPrice + memoryCost + storageCost + deliveryCost;
     totalPrice.innerText = totalCostAmount;
+
+    // Promo
+    const promoInput = document.getElementById('promo-input');
     const promoInputText = promoInput.value;
     const promoCode = 'stevekaku'
     if (promoInputText == promoCode) {
@@ -39,41 +21,40 @@ function totalCost() {
     promoInput.value = '';
 }
 
+// set pricing for specification buttons
+function setPricing(priceId, amount) {
+    document.getElementById(priceId).innerText = amount;
+    totalCost()
+}
+
 // add event listener to the memory buttons
-memoryLow.addEventListener('click', function () {
-    memoryCost.innerText = '0';
-    totalCost();
+document.getElementById('memory-low').addEventListener('click', function () {
+    setPricing('memory-cost', 0);
 })
-memoryHigh.addEventListener('click', function () {
-    memoryCost.innerText = '180';
-    totalCost();
+document.getElementById('memory-high').addEventListener('click', function () {
+    setPricing('memory-cost', 180);
 })
 
 // add event listener to the storage buttons
-storageLow.addEventListener('click', function () {
-    storageCost.innerText = '0';
-    totalCost();
+document.getElementById('storage-low').addEventListener('click', function () {
+    setPricing('storage-cost', 0)
 })
-storageMid.addEventListener('click', function () {
-    storageCost.innerText = '100';
-    totalCost();
+document.getElementById('storage-mid').addEventListener('click', function () {
+    setPricing('storage-cost', 100)
 })
-storageHigh.addEventListener('click', function () {
-    storageCost.innerText = '180';
-    totalCost();
+document.getElementById('storage-high').addEventListener('click', function () {
+    setPricing('storage-cost', 180)
 })
 
 // add event listener to the delivery buttons
-deliveryFree.addEventListener('click', function () {
-    deliveryCost.innerText = '0';
-    totalCost();
+document.getElementById('delivery-free').addEventListener('click', function () {
+    setPricing('delivery-cost', 0)
 })
-deliveryExpress.addEventListener('click', function () {
-    deliveryCost.innerText = '20';
-    totalCost();
+document.getElementById('delivery-express').addEventListener('click', function () {
+    setPricing('delivery-cost', 20);
 })
 
 // add event listener to the promo button
-applyPromo.addEventListener('click', function () {
+document.getElementById('apply-promo').addEventListener('click', function () {
     totalCost();
 })
