@@ -73,6 +73,7 @@ deliveryExpress.addEventListener('click', function () {
     totalCost();
 })
 
+// add event listener to the promo button
 applyPromo.addEventListener('click', function () {
     totalCost();
 })
